@@ -1,24 +1,48 @@
-# README
+## messagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|body|text|null: false,add_index|
+|image|string| |
+|group_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+###Association
+- belongs_to :user
+- belongs_to :group
 
-Things you may want to cover:
 
-* Ruby version
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false,add_index|
+|e-mail|string|null: false, unique: true|
 
-* System dependencies
+###Association
+- has_many :messages
+- has_many :groups, through: :member_group
+- has_many :members
 
-* Configuration
 
-* Database creation
+## groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|group_name|string|null: false|
 
-* Database initialization
+###Association
+- has_many :massages
+- has_many :users
+- has_many :members
 
-* How to run the test suite
+## membersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 
-* Services (job queues, cache servers, search engines, etc.)
+###Association
+- belongs_to :member
+- belongs_to :group
 
-* Deployment instructions
 
-* ...
+
+
