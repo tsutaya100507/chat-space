@@ -1,0 +1,46 @@
+%body
+  .header
+    %h2 チャットグループが作成されました。
+
+  .contents
+
+    .contents__left-content
+
+      .contents__left-content__user-name-space
+        .contents__left-content__user-name-space__user-name user-name
+
+        .contents__left-content__user-name-space__icon
+          = link_to root_path do
+            %i.fa.fa-pencil-square-o
+          = link_to root_path do
+            %i.fa.fa-cog
+
+      .contents__left-content__group-list
+
+        .contents__left-content__group-list__group
+          %h3 group-name
+          %p まだメッセージはありません。
+
+    .contents__right-content
+
+      .contents__right-content__group-title
+        .contents__right-content__group-title__edit Edit
+        %h2.contents__right-content__group-title__group-name group-name
+        %h2.contents__right-content__group-title__group-members Member : tatsuyaichikawa
+
+      .contents__right-content__main-space
+        .contents__right-content__main-space__chat
+          .contents__right-content__main-space__chat__upper
+            %h2.contents__right-content__main-space__chat__upper__user-name tatsuyaichikawa
+            %p.contents__right-content__main-space__chat__upper__date 2016/10/02 06:27:14
+          .contents__right-content__main-space__chat__lower
+            %p.contents__right-content__main-space__chat__lower__massage message
+
+      .contents__right-content__post-space
+        %form
+          %input{type: "text", placeholder: "  type a message",class: "text"}
+          .image
+            %label
+              %i.fa.fa-image
+
+        .contents__right-content__post-space__sent Sent
