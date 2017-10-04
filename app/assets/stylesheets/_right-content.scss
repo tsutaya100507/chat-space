@@ -1,3 +1,4 @@
+
     &__right-content{
       padding-left: 300px;
 
@@ -24,13 +25,13 @@
 
         &__group-name {
           font-size: 20px;
-          color: #434A54;
+          color: $black-color;
           margin-bottom: 15px;
         }
 
         &__group-members {
           font-size: 12px;
-          color: #999999;
+          color: $gray-color;
         }
       }
 
@@ -47,13 +48,13 @@
           &__user-name {
             font-size: 16px;
             font-weight: bold;
-            color: #434A54;
+            color: $black-color;
             float: left;
           }
 
           &__date {
             font-size:  12px;
-            color: #999999;
+            color: $gray-color;
             float: left;
             padding-left: 10px;
           }
@@ -65,7 +66,7 @@
 
           &__massage {
             font-size: 14px;
-            color: #434A54;
+            color: $black-color;
           }
         }
       }
