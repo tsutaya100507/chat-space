@@ -1,1 +1,30 @@
 @import "./reset";
+@import "font-awesome";
+
+body {
+
+  .header {
+    text-align: center;
+    height: 28px;
+    width: 100%;
+    background-color: #38AEF0;
+    position: fixed;
+    top: 0;
+
+    h2 {
+      color: #FFFFFF;
+      font-size: 16px;
+    }
+  }
+
+  .contents{
+    width: 100vw;
+    height: 100vh;
+    padding-top: 28px;
+    margin: 0 auto;
+
+@import "left-content";
+@import "right-content";
+  }
+}
+
