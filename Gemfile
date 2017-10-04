@@ -59,3 +59,5 @@ gem 'erb2haml'
 end
 
 gem 'font-awesome-rails'
+
+gem 'devise'
