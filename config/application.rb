@@ -8,9 +8,7 @@ Bundler.require(*Rails.groups)
 
 module ChatSpace
   class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+    config.i18n.default_locale = :ja  #deviseの日本語化
     config.generators do |g|  #不要なファイルの生成を抑止
       g.javascripts false
       g.helper false
