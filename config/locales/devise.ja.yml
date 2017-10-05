@@ -24,7 +24,7 @@ ja:
       inactive: 'アカウントがまだ有効になっていません'
     sessions:
       signed_in: 'ログインしました'
-      signed_out: 'ログインまたは登録が必要です。'
+      signed_out: 'ログアウトしました。'
     passwords:
       send_instructions: 'パスワードのリセット方法を数分以内にメールでご連絡します'
       updated: 'パスワードを変更しました。ログイン済みです'
