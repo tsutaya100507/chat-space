@@ -81,7 +81,7 @@
         padding: 20px 150px 20px 50px;
 
         input.text {
-          width: 870px;
+          width: calc(70% - 150px);
           height: 50px;
           border: white;
           float: left;
@@ -107,14 +107,14 @@
           width: 120px;
           height: 50px;
           background-color: #38AEF0;
-          position: fixed;
           bottom: 20px;
           right: 40px;
           color: white;
           font-weight: bold;
           text-align: center;
           line-height: 50px;
-          margin-left: 15px
+          margin-left: 15px;
+          float: left;
         }
       }
     }

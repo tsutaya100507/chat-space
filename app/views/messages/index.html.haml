@@ -5,19 +5,25 @@
     .contents__left-content
 
       .contents__left-content__user-name-space
-        .contents__left-content__user-name-space__user-name user-name
+        .contents__left-content__user-name-space__user-name
+          = current_user.name
 
         .contents__left-content__user-name-space__icon
-          = link_to root_path do
+          = link_to new_group_path do
             %i.fa.fa-pencil-square-o
           = link_to edit_user_path(current_user.id) do
             %i.fa.fa-cog
 
       .contents__left-content__group-list
 
-        .contents__left-content__group-list__group
-          %h3 group-name
-          %p まだメッセージはありません。
+        %ul.contents__left-content__group-list__group
+          - current_user.groups.each do |group|
+            %li.contents__left-content__group-list__group__list
+              %h3= group.name
+              %p まだメッセージはありません。
+        / .contents__left-content__group-list__group
+        /   %h3 group-name
+        /   %p まだメッセージはありません。
 
     .contents__right-content
 
