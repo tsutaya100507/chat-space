@@ -18,12 +18,7 @@
 
         %ul.contents__left-content__group-list__group
           - current_user.groups.each do |group|
-            %li.contents__left-content__group-list__group__list
-              %h3= group.name
-              %p まだメッセージはありません。
-        / .contents__left-content__group-list__group
-        /   %h3 group-name
-        /   %p まだメッセージはありません。
+            = render partial: "groups/groups", locals: { group:group }
 
     .contents__right-content
 
