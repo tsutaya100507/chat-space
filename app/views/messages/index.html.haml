@@ -1,0 +1,47 @@
+%body
+
+  .contents
+
+    .contents__left-content
+
+      .contents__left-content__user-name-space
+        .contents__left-content__user-name-space__user-name
+          = current_user.name
+
+        .contents__left-content__user-name-space__icon
+          = link_to new_group_path do
+            %i.fa.fa-pencil-square-o
+          = link_to edit_user_path(current_user.id) do
+            %i.fa.fa-cog
+
+      .contents__left-content__group-list
+
+        %ul.contents__left-content__group-list__group
+          - current_user.groups.each do |group|
+            = render partial: "groups/groups", locals: { group:group }
+
+    .contents__right-content
+
+      .contents__right-content__group-title
+        .contents__right-content__group-title__edit Edit
+        %h2.contents__right-content__group-title__group-name
+          = @group.name
+        %h2.contents__right-content__group-title__group-members Member : tatsuyaichikawa
+
+      .contents__right-content__main-space
+        - @messages.each do |message|
+          .contents__right-content__main-space__chat
+            .contents__right-content__main-space__chat__upper
+              %h2.contents__right-content__main-space__chat__upper__user-name
+                =message.user.name
+              %p.contents__right-content__main-space__chat__upper__date
+                =message.updated_at
+            .contents__right-content__main-space__chat__lower
+              %p.contents__right-content__main-space__chat__lower__massage
+                =message.message
+
+      .contents__right-content__post-space
+        = form_for @message, url: group_messages_path do |f|
+          = f.text_field :message, placeholder: "  type a message", class:"contents__right-content__post-space__message"
+          = f.file_field :image, class:"contents__right-content__post-space__image"
+          = f.submit "Sent", class:"contents__right-content__post-space__sent"
