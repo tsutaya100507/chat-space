@@ -17,8 +17,9 @@
       .contents__left-content__group-list
 
         %ul.contents__left-content__group-list__group
-          - current_user.groups.each do |group|
-            = render partial: "groups/groups", locals: { group:group }
+          = render partial: "groups/groups", collection: current_user.groups
+          / - current_user.groups.each do |group|
+          /   = render partial: "groups/groups", locals: { group:group }
 
     .contents__right-content
 
