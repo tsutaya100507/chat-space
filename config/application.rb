@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module ChatSpace
   class Application < Rails::Application
+    config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
     config.i18n.default_locale = :ja  #deviseの日本語化
     config.generators do |g|  #不要なファイルの生成を抑止
       g.javascripts false
