@@ -42,5 +42,8 @@
       .contents__right-content__post-space
         = form_for [@group,@message] do |f|
           = f.text_field :message, placeholder: "  type a message", class:"contents__right-content__post-space__message"
-          = f.file_field :image, class:"contents__right-content__post-space__image"
+          .image
+            %label
+              %i.fa.fa-image
+              = f.file_field :image, class:"contents__right-content__post-space__image", style: "display: none;"
           = f.submit "Sent", class:"contents__right-content__post-space__sent"
