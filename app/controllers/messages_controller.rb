@@ -3,17 +3,15 @@ class MessagesController < ApplicationController
 
   def index
     @message = Message.new
-    @messages = @group.messages.order('id DESC')
+    @messages = @group.messages.order('id ASC')
   end
 
   def create
     @message = current_user.messages.new(message_params)
-    # @message = @group.messages
     if @message.save
       redirect_to group_messages_path(@group.id)
     else
-      flash.now[:alert] = 'メッセージを入力してください。'
-      redirect_to "index"
+      redirect_to group_messages_path(@group.id), flash: {alert: 'メッセージを入力してください。'}
     end
   end
 
