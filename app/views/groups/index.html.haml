@@ -17,7 +17,7 @@
       .contents__left-content__group-list
 
         %ul.contents__left-content__group-list__group
-          = render partial: "groups/groups", collection: current_user.groups
+          = render partial: "groups/groups", collection: current_user.groups, as: "group"
 
     / .contents__right-content
 
