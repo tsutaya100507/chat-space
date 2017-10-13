@@ -17,15 +17,19 @@
       .contents__left-content__group-list
 
         %ul.contents__left-content__group-list__group
-          = render partial: "groups/groups", collection: current_user.groups
+          = render partial: "groups/group", collection: current_user.groups
 
     .contents__right-content
 
       .contents__right-content__group-title
-        .contents__right-content__group-title__edit Edit
+        = link_to edit_group_path(@group.id) do
+          .contents__right-content__group-title__edit Edit
         %h2.contents__right-content__group-title__group-name
           = @group.name
-        %h2.contents__right-content__group-title__group-members Member : tatsuyaichikawa
+        %h2.contents__right-content__group-title__group-members
+          Member :
+          -@group.users.each do |user|
+            =user.name
 
       .contents__right-content__main-space
         - @messages.each do |message|
@@ -34,10 +38,11 @@
               %h2.contents__right-content__main-space__chat__upper__user-name
                 =message.user.name
               %p.contents__right-content__main-space__chat__upper__date
-                =message.updated_at
+                =message.updated_at.strftime("%Y-%m-%d %H:%M:%S")
             .contents__right-content__main-space__chat__lower
               %p.contents__right-content__main-space__chat__lower__massage
                 =message.message
+              =image_tag message.image
 
       .contents__right-content__post-space
         = form_for [@group,@message] do |f|

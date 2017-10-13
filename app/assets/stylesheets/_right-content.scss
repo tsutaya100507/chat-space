@@ -15,7 +15,7 @@
           height: 38px;
           border: thin solid #38AEF0;
           position: fixed;
-          top: 28px+28px;
+          top: 37px;
           right: 40px;
           color: #38AEF0;
           font-weight: bold;
@@ -37,8 +37,9 @@
 
       &__main-space{
         background-color: #F9F9F9;
-        height: 100%;
-        padding: 168px 40px 0 40px;
+        height: 700px;
+        padding: 168px 40px 80px 40px;
+        overflow: scroll;
 
         &__chat {
          padding-bottom: 40px;
