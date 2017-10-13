@@ -1,5 +1,0 @@
-=link_to(group_messages_path(group.id)) do
-  %li.contents__left-content__group-list__group__list
-    %h3= group.name
-    %p
-      = group.messages.last.try(:message) || "まだ投稿がありません。"
