@@ -3,15 +3,17 @@ class MessagesController < ApplicationController
 
   def index
     @message = Message.new
-    @messages = @group.messages.order('id ASC')
+    @messages = @group.messages.ascend
+    # @messages = @group.messages.order('id ASC') をscopeを使用したものに書き換え。
+
   end
 
   def create
     @message = current_user.messages.new(message_params)
     if @message.save
-      redirect_to group_messages_path(@group.id)
+      redirect_to group_messages_path(@group)
     else
-      redirect_to group_messages_path(@group.id), flash: {alert: 'メッセージを入力してください。'}
+      redirect_to group_messages_path(@group), flash: {alert: 'メッセージを入力してください。'}
     end
   end
 
