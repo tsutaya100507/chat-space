@@ -3,6 +3,7 @@ require 'rails_helper'
 describe Message do
   describe '#create' do
 
+    context 'in case of valid' do
       it "is valid with message" do
         message = build(:message, image:"")
         expect(message).to be_valid
@@ -17,7 +18,9 @@ describe Message do
         message = build(:message)
         expect(message).to be_valid
       end
+    end
 
+    context 'in case of invalid' do
       it "is invalid without message and image" do
         message = build(:message, message:"", image:"")
         message.valid?
@@ -37,5 +40,6 @@ describe Message do
       end
     end
   end
+end
 
 
