@@ -46,20 +46,20 @@ describe MessagesController do
 
             it "renders the :index template" do
               get :index, params: { group_id: group}
-             expect(response).to render_template :index
+              expect(response).to render_template :index
             end
           end
 
         context 'in case of user_login but failed' do
           it "is not saved on Data Base" do
             expect do
-            post :create, params: { group_id: group, message: attributes_for(:message, message: nil, image: nil) }
-            end.to change(Message, :count).by(0)
+              post :create, params: { group_id: group, message: attributes_for(:message, message: nil, image: nil) }
+            end.not_to change(Message, :count)
           end
 
           it "renders the :index template" do
-              get :index, params: { group_id: group}
-             expect(response).to render_template :index
+            get :index, params: { group_id: group}
+            expect(response).to render_template :index
           end
         end
       end
@@ -73,3 +73,4 @@ describe MessagesController do
       end
     end
   end
+
