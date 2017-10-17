@@ -34,10 +34,10 @@ describe MessagesController do
     end
 
     describe 'POST #create' do
-      before do
-        login_user user
-      end
-        context 'in case of user_login' do
+      context 'in case of user_login' do
+        before do
+          login_user user
+        end
             it "is saved on Data Base" do
               expect do
                 post :create, params: { group_id: group, message: attributes_for(:message) }
@@ -45,32 +45,27 @@ describe MessagesController do
             end
 
             it "renders the :index template" do
-              get :index, params: { group_id: group}
-              expect(response).to render_template :index
+              post :create, params: { group_id: group, message: attributes_for(:message)}
+              expect(response).to redirect_to group_messages_path(group)
+            end
+
+            it "is not saved on Data Base although user_rogin" do
+              expect do
+                post :create, params: { group_id: group, message: attributes_for(:message, message: nil, image: nil) }
+              end.not_to change(Message, :count)
+            end
+
+            it "renders the :index template" do
+              post :create, params: { group_id: group, message: attributes_for(:message) }
+              expect(response).to redirect_to group_messages_path(group)
             end
           end
 
-        context 'in case of user_login but failed' do
-          it "is not saved on Data Base" do
-            expect do
-              post :create, params: { group_id: group, message: attributes_for(:message, message: nil, image: nil) }
-            end.not_to change(Message, :count)
-          end
-
-          it "renders the :index template" do
-            get :index, params: { group_id: group}
-            expect(response).to render_template :index
-          end
-        end
-      end
-
-    describe 'POST #create' do
-      describe 'in case of user_logout' do
+      context 'in case of user_logout' do
         it "redirect_to new_user_session_path" do
-          get :index, group_id: group
+          post :create, params: { group_id: group, message: attributes_for(:message) }
           expect(response).to redirect_to(new_user_session_path)
         end
       end
     end
   end
-
