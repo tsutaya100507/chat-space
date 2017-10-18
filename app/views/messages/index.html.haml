@@ -45,7 +45,7 @@
               =image_tag message.image
 
       .contents__right-content__post-space
-        = form_for [@group,@message] do |f|
+        = form_for [@group,@message], html: {class: "message_form" } do |f|
           = f.text_field :message, placeholder: "  type a message", class:"contents__right-content__post-space__message"
           .image
             %label
