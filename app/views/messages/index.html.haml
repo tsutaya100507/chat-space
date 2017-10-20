@@ -22,7 +22,7 @@
     .contents__right-content
 
       .contents__right-content__group-title
-        = link_to edit_group_path(@group.id) do
+        = link_to edit_group_path(@group.id), data: { no_turbolink: true } do
           .contents__right-content__group-title__edit Edit
         %h2.contents__right-content__group-title__group-name
           = @group.name
