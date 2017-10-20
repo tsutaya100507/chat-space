@@ -27,7 +27,7 @@
       .chat-group-user.clearfix.js-chat-member#chat-group-user-8
         %p.chat-group-user__name
           =current_user.name
-      =f.hidden_field :user_ids, value: current_user.id
+      =f.hidden_field :user_ids, value: current_user.id, multiple: true
       #chat-member-list
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
