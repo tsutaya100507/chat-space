@@ -24,7 +24,6 @@ $(function(){
 
   $('.chat-group-form__search').on("keyup", function(){
     var input = $("#user-search-field").val();
-    console.log(input);
     $.ajax({
       type: 'GET',
       url: '/users',
