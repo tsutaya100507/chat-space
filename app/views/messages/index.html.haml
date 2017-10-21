@@ -33,7 +33,7 @@
 
       .contents__right-content__main-space
         - @messages.each do |message|
-          .contents__right-content__main-space__chat
+          .contents__right-content__main-space__chat{"data-id": message.id}
             .contents__right-content__main-space__chat__upper
               %h2.contents__right-content__main-space__chat__upper__user-name
                 =message.user.name
