@@ -1,10 +1,10 @@
-$(function(){
-  function buildHTML(message){
+$(document).on('turbolinks:load', function() {
+
+  function buildHTML(message) {
     if(message.image !== ""){
-      var imagebuild = `<img src="${ message.image
-      }">`
+      var imagebuild = `<img src="${ message.image }">`
     };
-    var html = `<div class="contents__right-content__main-space__chat">
+    var html = `<div class="contents__right-content__main-space__chat" data-id="${message.id}">
                   <div class="contents__right-content__main-space__chat__upper">
                     <h2 class="contents__right-content__main-space__chat__upper__user-name">
                       ${ message.user_name}
