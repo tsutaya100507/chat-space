@@ -4,6 +4,10 @@ class MessagesController < ApplicationController
   def index
     @message = Message.new
     @messages = @group.messages.ascend
+    respond_to do |format|
+      format.html
+      format.json { @new_messages = @group.messages.where('id > ?', params[:id]) }
+    end
     # @messages = @group.messages.order('id ASC') をscopeを使用したものに書き換え。
 
   end
