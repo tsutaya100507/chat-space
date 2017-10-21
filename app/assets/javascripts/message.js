@@ -1,9 +1,11 @@
 $(document).on('turbolinks:load', function() {
 
   function buildHTML(message) {
-    if(message.image !== ""){
-      var imagebuild = `<img src="${ message.image }">`
-    };
+    var imagebuild = (message.image !== "")? `<img src="${ message.image }">` : "" ;
+    // 以下を三項演算子を使って書き換え
+    // if(message.image !== ""){
+    //   var imagebuild = `<img src="${ message.image }">`
+    // };
     var html = `<div class="contents__right-content__main-space__chat" data-id="${message.id}">
                   <div class="contents__right-content__main-space__chat__upper">
                     <h2 class="contents__right-content__main-space__chat__upper__user-name">
